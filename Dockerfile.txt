@@ -1,0 +1,15 @@
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the Python script and data file into the container
+COPY test.py /app
+COPY paragraphs.txt /app
+
+# Install any dependencies required by the Python script
+RUN pip install numpy
+
+# Command to run the Python script
+CMD ["python", "test.py"]
